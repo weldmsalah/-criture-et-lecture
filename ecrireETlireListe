@@ -1,0 +1,61 @@
+#creer un document  #ecrire lire    #transformer en list pour .pop .add ..
+
+import re # pour enlever les vergule ,point ,!?..
+con=0
+I=""
+while not I.lower()=="0":          #zero pour quitter le programme
+    if con<1:                      # info avant demarage du compte
+       print(" 0  pour quitter")
+    I=input("ecrivez votre  texte : ")
+    con+=1
+
+    with open("doc2.txt","a+") as doc:
+        if not I =="0"and con<5:                 #ecrire tant que !=
+          doc.write(I+" ")
+
+with open("doc2.txt","r") as doc:            #partie list
+    bloc=doc.read()
+print(bloc.split())
+
+#partie re                            # parti liste sans espace ni vergule..
+mot=re.findall(r'\b\w+\b',bloc)
+print(mot)
+
+
+print("index du mot rechercher est :")
+
+x=input("le mot a remplacer : ")
+if x in mot:
+   print(f'index du mot rechercher est :',mot.index(x))
+   mot[mot.index(x)]="MOTS"
+else: 
+   print("n est pas dans le texte !")     
+print(mot)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+ 
+
+#exemple              f=open(text.txt,r)
+#        print(f.read().split())
+# for i in  f.read()<.split(" ")
+#******************
+# x=text.split("#",1)  au premier # split pas plus
+
+
+
